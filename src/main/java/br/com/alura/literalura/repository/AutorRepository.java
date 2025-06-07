@@ -1,3 +1,5 @@
+// Challenge ONE ALURA - GutendexAPI
+// Desenvolvedor: Ricardo G.B. Lacerda
 package br.com.alura.literalura.repository;
 
 import br.com.alura.literalura.model.Autor;

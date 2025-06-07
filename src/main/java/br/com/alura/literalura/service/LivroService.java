@@ -1,3 +1,5 @@
+// Challenge ONE ALURA - GutendexAPI
+// Desenvolvedor: Ricardo G.B. Lacerda
 package br.com.alura.literalura.service;
 
 import br.com.alura.literalura.dto.AutorDTO;
@@ -17,10 +19,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import br.com.alura.literalura.service.ConsumoAPI;
-import br.com.alura.literalura.service.ConverteDados;
-
 
 @Service
 public class LivroService {

@@ -1,3 +1,5 @@
+// Challenge ONE ALURA - GutendexAPI
+// Desenvolvedor: Ricardo G.B. Lacerda
 package br.com.alura.literalura.menu;
 
 import br.com.alura.literalura.leitor.inserirDados;
@@ -27,7 +29,7 @@ public class LiterAluraMenu {
             System.out.println("4. Listar autor por nome");
             System.out.println("5. Listar autores por ano de nascimento");
             System.out.println("6. Listar autores por ano de falecimento");
-            System.out.println("7. Listar autores vivos até o ano digitado"); // <-- Esta opção
+            System.out.println("7. Listar autores vivos até o ano digitado");
             System.out.println("8. Listar livros por um trecho do título");
             System.out.println("9. Listar livros por um autor");
             System.out.println("10. Listar livros em um determinado idioma");

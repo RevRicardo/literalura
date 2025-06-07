@@ -1,3 +1,5 @@
+// Challenge ONE ALURA - GutendexAPI
+// Desenvolvedor: Ricardo G.B. Lacerda
 package br.com.alura.literalura.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
