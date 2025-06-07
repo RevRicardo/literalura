@@ -1,18 +1,23 @@
 package br.com.alura.literalura;
 
+import br.com.alura.literalura.menu.LiterAluraMenu;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringBootApplication
 public class LiteraluraApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LiteraluraApplication.class, args);
-	}
+    @Autowired
+    private LiterAluraMenu menu;
 
-	@Override
-	public void run(String... args) throws Exception {
+    public static void main(String[] args) {
+        SpringApplication.run(LiteraluraApplication.class, args);
+    }
 
-	}
+    @Override
+    public void run(String... args) throws Exception {
+        menu.exibirMenu();
+    }
 }
