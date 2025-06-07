@@ -18,13 +18,17 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import br.com.alura.literalura.service.ConsumoAPI; // Referência alterada aqui
+import br.com.alura.literalura.service.ConverteDados;
+
+
 @Service
 public class LivroService {
 
     private final String ENDERECO_BASE = "https://gutendex.com/books/?search=";
 
     @Autowired
-    private ConsumoAPI consumoApi;
+    private ConsumoAPI consumoApi; // Tipo da variável alterado aqui
 
     @Autowired
     private ConverteDados conversor;
@@ -59,7 +63,9 @@ public class LivroService {
             Livro livro = new Livro(livroDTO);
             if (livroDTO.autores() != null && !livroDTO.autores().isEmpty()) {
                 AutorDTO autorDTO = livroDTO.autores().get(0);
+
                 Optional<Autor> autorExistente = autorRepository.findByNomeContainingIgnoreCase(autorDTO.nome());
+
                 Autor autor;
                 if (autorExistente.isPresent()) {
                     autor = autorExistente.get();
@@ -114,7 +120,6 @@ public class LivroService {
                 .filter(a -> (a.getDataNascimento() == null || !a.getDataNascimento().isAfter(anoFim)) &&
                         (a.getDataFalecimento() == null || !a.getDataFalecimento().isBefore(anoInicio)))
                 .collect(Collectors.toList());
-
 
         if (autoresVivos.isEmpty()) {
             System.out.println("Nenhum autor encontrado vivo no ano " + ano + ".");

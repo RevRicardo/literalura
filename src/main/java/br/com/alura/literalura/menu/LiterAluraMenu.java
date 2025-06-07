@@ -1,18 +1,18 @@
 package br.com.alura.literalura.menu;
 
 import br.com.alura.literalura.leitor.inserirDados;
-import br.com.alura.literalura.service.LivroService; // Importar o LivroService
-import org.springframework.beans.factory.annotation.Autowired; // Para injeção de dependência no menu
-import org.springframework.stereotype.Component; // Para que o Spring gerencie este componente
+import br.com.alura.literalura.service.LivroService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
-@Component // Indica ao Spring para gerenciar esta classe como um componente
+@Component
 public class LiterAluraMenu {
 
     private final Scanner leitura = inserirDados.leitura;
 
-    @Autowired // Injeta a instância de LivroService criada pelo Spring
+    @Autowired
     private LivroService livroService;
 
     public void exibirMenu() {
@@ -60,7 +60,6 @@ public class LiterAluraMenu {
                 break;
             case 4:
                 System.out.println("Opção 4: Listar autor por nome (Ainda não implementado no serviço)");
-                // Será implementado um método no LivroService para isso
                 break;
             case 5:
                 System.out.println("Opção 5: Listar autores por ano de nascimento (Ainda não implementado no serviço)");
