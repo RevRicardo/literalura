@@ -59,7 +59,9 @@ public class LiterAluraMenu {
                 livroService.listarAutores();
                 break;
             case 4:
-                System.out.println("Opção 4: Listar autor por nome (Ainda não implementado no serviço)");
+                System.out.print("Digite o nome do autor que deseja buscar: ");
+                String nomeAutorBusca = leitura.nextLine();
+                livroService.listarAutorPorNome(nomeAutorBusca);
                 break;
             case 5:
                 System.out.println("Opção 5: Listar autores por ano de nascimento (Ainda não implementado no serviço)");

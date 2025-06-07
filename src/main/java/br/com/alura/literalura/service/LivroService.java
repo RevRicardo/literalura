@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import br.com.alura.literalura.service.ConsumoAPI; // Referência alterada aqui
+import br.com.alura.literalura.service.ConsumoAPI;
 import br.com.alura.literalura.service.ConverteDados;
 
 
@@ -28,7 +28,7 @@ public class LivroService {
     private final String ENDERECO_BASE = "https://gutendex.com/books/?search=";
 
     @Autowired
-    private ConsumoAPI consumoApi; // Tipo da variável alterado aqui
+    private ConsumoAPI consumoApi;
 
     @Autowired
     private ConverteDados conversor;
@@ -129,6 +129,28 @@ public class LivroService {
                     ", Nascimento: " + (a.getDataNascimento() != null ? a.getDataNascimento().getYear() : "N/A") +
                     ", Falecimento: " + (a.getDataFalecimento() != null ? a.getDataFalecimento().getYear() : "N/A")));
             System.out.println("-------------------------------------");
+        }
+    }
+
+    public void listarAutorPorNome(String nomeAutorBusca) {
+        Optional<Autor> autorBuscado = autorRepository.findByNomeContainingIgnoreCase(nomeAutorBusca);
+
+        if (autorBuscado.isPresent()) {
+            Autor autor = autorBuscado.get();
+            System.out.println("\n--- DETALHES DO AUTOR ---");
+            System.out.println("Nome: " + autor.getNome());
+            System.out.println("Ano de Nascimento: " + (autor.getDataNascimento() != null ? autor.getDataNascimento().getYear() : "N/A"));
+            System.out.println("Ano de Falecimento: " + (autor.getDataFalecimento() != null ? autor.getDataFalecimento().getYear() : "N/A"));
+
+            if (autor.getLivros() != null && !autor.getLivros().isEmpty()) {
+                System.out.println("Livros Publicados:");
+                autor.getLivros().forEach(livro -> System.out.println("  - " + livro.getTitulo() + " (Idioma: " + livro.getIdioma() + ")"));
+            } else {
+                System.out.println("Este autor não tem livros registrados no momento.");
+            }
+            System.out.println("-------------------------");
+        } else {
+            System.out.println("Autor '" + nomeAutorBusca + "' não encontrado no banco de dados.");
         }
     }
 }
