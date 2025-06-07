@@ -64,11 +64,26 @@ public class LiterAluraMenu {
                 livroService.listarAutorPorNome(nomeAutorBusca);
                 break;
             case 5:
-                System.out.println("Opção 5: Listar autores por ano de nascimento (Ainda não implementado no serviço)");
+                System.out.print("Digite o ano de nascimento para buscar autores: ");
+                try {
+                    int anoNascimento = Integer.parseInt(leitura.nextLine());
+                    livroService.listarAutoresPorAnoDeNascimento(anoNascimento);
+                } catch (NumberFormatException e) {
+                    System.out.println("Ano inválido. Por favor, digite um número inteiro.");
+                }
                 break;
             case 6:
-                System.out.println("Opção 6: Listar autores por ano de falecimento (Ainda não implementado no serviço)");
+                System.out.print("Digite o ano de falecimento para buscar autores: ");
+                try {
+                    int anoFalecimento = Integer.parseInt(leitura.nextLine());
+                    livroService.listarAutoresPorAnoDeFalecimento(anoFalecimento);
+                } catch (NumberFormatException e) {
+                    System.out.println("Ano inválido. Por favor, digite um número inteiro.");
+                }
                 break;
+                1
+
+
             case 7:
                 System.out.print("Digite o ano limite para autores vivos: ");
                 try {

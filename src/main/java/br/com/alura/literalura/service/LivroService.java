@@ -153,4 +153,38 @@ public class LivroService {
             System.out.println("Autor '" + nomeAutorBusca + "' não encontrado no banco de dados.");
         }
     }
+
+    public void listarAutoresPorAnoDeNascimento(int anoNascimento) {
+        LocalDate dataInicioAno = LocalDate.of(anoNascimento, 1, 1);
+        LocalDate dataFimAno = LocalDate.of(anoNascimento, 12, 31);
+
+        List<Autor> autores = autorRepository.findByDataNascimentoBetween(dataInicioAno, dataFimAno);
+
+        if (autores.isEmpty()) {
+            System.out.println("Nenhum autor encontrado nascido no ano " + anoNascimento + ".");
+        } else {
+            System.out.println("\n--- AUTORES NASCIDOS EM " + anoNascimento + " ---");
+            autores.forEach(a -> System.out.println("Nome: " + a.getNome() +
+                    ", Nascimento: " + a.getDataNascimento().getYear() +
+                    ", Falecimento: " + (a.getDataFalecimento() != null ? a.getDataFalecimento().getYear() : "N/A")));
+            System.out.println("-------------------------------------");
+        }
+    }
+
+    public void listarAutoresPorAnoDeFalecimento(int anoFalecimento) {
+        LocalDate dataInicioAno = LocalDate.of(anoFalecimento, 1, 1);
+        LocalDate dataFimAno = LocalDate.of(anoFalecimento, 12, 31);
+
+        List<Autor> autores = autorRepository.findByDataFalecimentoBetween(dataInicioAno, dataFimAno);
+
+        if (autores.isEmpty()) {
+            System.out.println("Nenhum autor encontrado falecido no ano " + anoFalecimento + ".");
+        } else {
+            System.out.println("\n--- AUTORES FALECIDOS EM " + anoFalecimento + " ---");
+            autores.forEach(a -> System.out.println("Nome: " + a.getNome() +
+                    ", Nascimento: " + (a.getDataNascimento() != null ? a.getDataNascimento().getYear() : "N/A") +
+                    ", Falecimento: " + a.getDataFalecimento().getYear()));
+            System.out.println("-------------------------------------");
+        }
+    }
 }

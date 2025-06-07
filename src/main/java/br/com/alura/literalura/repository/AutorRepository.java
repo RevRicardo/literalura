@@ -12,4 +12,7 @@ import java.util.Optional;
 public interface AutorRepository extends JpaRepository<Autor, Long> {
     Optional<Autor> findByNomeContainingIgnoreCase(String nome);
     List<Autor> findByDataNascimentoBeforeOrDataNascimentoIsNullAndDataFalecimentoAfterOrDataFalecimentoIsNull(LocalDate anoLimite, LocalDate anoLimite2);
+    List<Autor> findByDataNascimentoBetween(LocalDate startOfYear, LocalDate endOfYear);
+    List<Autor> findByDataFalecimentoBetween(LocalDate startOfYear, LocalDate endOfYear);
+
 }
