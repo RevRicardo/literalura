@@ -110,6 +110,7 @@ public class LivroService {
         }
     }
 
+    // Método que lista autores vivos em algum momento do ano informado
     public void listarAutoresVivosPorAno(int ano) {
         LocalDate anoInicio = LocalDate.of(ano, 1, 1);
         LocalDate anoFim = LocalDate.of(ano, 12, 31);

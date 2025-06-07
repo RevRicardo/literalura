@@ -27,7 +27,7 @@ public class LiterAluraMenu {
             System.out.println("4. Listar autor por nome");
             System.out.println("5. Listar autores por ano de nascimento");
             System.out.println("6. Listar autores por ano de falecimento");
-            System.out.println("7. Listar autores vivos até o ano digitado");
+            System.out.println("7. Listar autores vivos até o ano digitado"); // <-- Esta opção
             System.out.println("8. Listar livros por um trecho do título");
             System.out.println("9. Listar livros por um autor");
             System.out.println("10. Listar livros em um determinado idioma");
@@ -81,9 +81,6 @@ public class LiterAluraMenu {
                     System.out.println("Ano inválido. Por favor, digite um número inteiro.");
                 }
                 break;
-                1
-
-
             case 7:
                 System.out.print("Digite o ano limite para autores vivos: ");
                 try {
